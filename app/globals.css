@@ -34,15 +34,15 @@ html, body {
 /* =========================================================================
    Paattupetti Kerala Photographic Scene Background (Global Background)
    - Clean, vibrant, fully visible background without smoky or dark overlays
-   - Desktop / Laptop: scene-wide.png
-   - Mobile / Phone: scene-tall.png
+   - Desktop / Laptop (> 767px): /bg/scene-wide.png
+   - Mobile / Phone (<= 767px): /bg/scene-tall.png
    ========================================================================= */
 
 .paattupetti-bg {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background-image: url('/pattupetti/images/backgrounds/scene-wide.png'), url('/images/backgrounds/scene-wide.png'), url('/scene-wide.png');
+  background-image: url('/pattupetti/bg/scene-wide.png'), url('/bg/scene-wide.png'), url('/scene-wide.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -50,9 +50,9 @@ html, body {
   transition: background-image 0.4s ease-in-out;
 }
 
-@media (max-width: 767px), (orientation: portrait) {
+@media (max-width: 767px) {
   .paattupetti-bg {
-    background-image: url('/pattupetti/images/backgrounds/scene-tall.png'), url('/images/backgrounds/scene-tall.png'), url('/scene-tall.png');
+    background-image: url('/pattupetti/bg/scene-tall.png'), url('/bg/scene-tall.png'), url('/scene-tall.png');
     background-position: center center;
   }
 }
