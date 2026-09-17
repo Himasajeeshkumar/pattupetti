@@ -1,13 +1,16 @@
 import type { NextConfig } from "next";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "/pattupetti";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
-  basePath: "/Paattupetti",
+  basePath: basePath,
   images: {
     unoptimized: true,
   },
-  trailingSlash: true,
 };
 
 export default nextConfig;
+
+

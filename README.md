@@ -2,7 +2,7 @@
 
 > Malayalam Nostalgic Radio & Music Archive
 
-🌐 **Live Website**: [https://himasajeeshkumar.github.io/Paattupetti/](https://himasajeeshkumar.github.io/Paattupetti/)
+🌐 **Live Website**: [https://himasajeeshkumar.github.io/pattupetti/](https://himasajeeshkumar.github.io/pattupetti/)
 
 Paattupetti (പാട്ടുപെട്ടി) is a nostalgic Malayalam music web application inspired by the atmospheric charm of vintage Kerala cassette shops, tea-stall radios, monsoon downpours, and soulful late-night melodies.
 
@@ -66,7 +66,7 @@ Ensure you have [Node.js](https://nodejs.org/) installed (version 18 or higher r
    npm run dev
    ```
 
-4. Open [http://localhost:3000/Paattupetti/](http://localhost:3000/Paattupetti/) with your browser to explore Paattupetti.
+4. Open [http://localhost:3000/pattupetti/](http://localhost:3000/pattupetti/) with your browser to explore Paattupetti.
 
 ---
 
@@ -84,7 +84,7 @@ This generates the static site in the `out/` directory.
 
 The repository is configured with automated GitHub Actions (`.github/workflows/deploy.yml`) that automatically builds and deploys the project to GitHub Pages upon pushing to the `main` branch.
 
-Live at: [https://himasajeeshkumar.github.io/Paattupetti/](https://himasajeeshkumar.github.io/Paattupetti/)
+Live at: [https://himasajeeshkumar.github.io/pattupetti/](https://himasajeeshkumar.github.io/pattupetti/)
 
 ---
 
