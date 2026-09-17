@@ -27,6 +27,15 @@ function App() {
       ? selectedPlaylistId
       : "golden-memories";
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "/pattupetti";
+
+  const getPlaylistCover = (playlist: Playlist) => {
+    if (playlist.id === "monsoon-memories") {
+      return `${basePath}/images/backgrounds/monsoon-desktop.png`;
+    }
+    return `https://i.ytimg.com/vi/${playlist.tracks[0]?.videoId || ""}/hqdefault.jpg`;
+  };
+
   const allTracks = useMemo(
     () => playlists.flatMap((p) => p.tracks.map((t) => ({ ...t, playlistId: p.id }))),
     []
@@ -211,9 +220,14 @@ function App() {
                     <div>
                       <div className="relative mb-4 aspect-[16/10] w-full overflow-hidden rounded-xl border border-marigold/20 bg-black/40">
                         <img
-                          src={`https://i.ytimg.com/vi/${p.tracks[0]?.videoId || ""}/hqdefault.jpg`}
-                          alt=""
-                          className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                          src={getPlaylistCover(p)}
+                          alt={p.name}
+                          onError={(e) => {
+                            if (p.id === "monsoon-memories") {
+                              (e.currentTarget as HTMLImageElement).src = "/images/backgrounds/monsoon-desktop.png";
+                            }
+                          }}
+                          className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                         <span className="absolute bottom-2.5 left-2.5 rounded-md bg-marigold px-2.5 py-0.5 font-mono text-[11px] font-bold text-ink shadow-md">
@@ -318,9 +332,14 @@ function App() {
                   <div>
                     <div className="relative mb-5 aspect-[4/3] w-full overflow-hidden rounded-xl border border-marigold/20 bg-black/40">
                       <img
-                        src={`https://i.ytimg.com/vi/${p.tracks[0]?.videoId || ""}/hqdefault.jpg`}
-                        alt=""
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        src={getPlaylistCover(p)}
+                        alt={p.name}
+                        onError={(e) => {
+                          if (p.id === "monsoon-memories") {
+                            (e.currentTarget as HTMLImageElement).src = "/images/backgrounds/monsoon-desktop.png";
+                          }
+                        }}
+                        className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
                       <span className="absolute bottom-3 left-3 rounded-lg bg-marigold px-3 py-1 font-mono text-xs font-bold text-ink shadow-md">

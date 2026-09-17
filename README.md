@@ -1,93 +1,86 @@
 # Paattupetti
 
-> Malayalam Nostalgic Radio & Music Archive
+A nostalgic Malayalam music radio experience inspired by Kerala's cassette-era memories, monsoon evenings, classic songs and late-night listening.
 
-🌐 **Live Website**: [https://himasajeeshkumar.github.io/pattupetti/](https://himasajeeshkumar.github.io/pattupetti/)
-
-Paattupetti (പാട്ടുപെട്ടി) is a nostalgic Malayalam music web application inspired by the atmospheric charm of vintage Kerala cassette shops, tea-stall radios, monsoon downpours, and soulful late-night melodies.
+🌐 **Live Website**: [https://himasajeeshkumar.github.io/pattupetti/](https://himasajeeshkumar.github.io/pattupetti/)  
+📦 **GitHub Repository**: [https://github.com/Himasajeeshkumar/Paattupetti](https://github.com/Himasajeeshkumar/Paattupetti)
 
 ---
 
-## Collections
+## Overview
 
-The archive contains 300 hand-curated, evergreen Malayalam songs categorized into three distinct moods:
+Paattupetti (പാട്ടുപെട്ടി) is a curated Malayalam music radio web application designed with warm Kerala nostalgia. It features 300 timeless tracks categorized into three atmospheric collections:
 
-- **Golden Memories (100 Tracks)**: Evergreen cassette-era masterpieces from Malayalam cinema (1960s to 1990s).
-- **Monsoon Memories (100 Tracks)**: Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon and evening charm.
-- **Night Radio (100 Tracks)**: Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection.
+- **Golden Memories (100 Tracks)**: Evergreen cassette-era masterpieces from the golden age of Malayalam cinema.
+- **Monsoon Memories (100 Tracks)**: Rain-drenched, soulful melodies capturing the soothing mood of Kerala monsoons.
+- **Night Radio (100 Tracks)**: Calm, late-night atmospheric melodies for peaceful listening and quiet reflection.
 
 ---
 
 ## Features
 
-- **Malayalam Nostalgic Music Archive**: 300 curated songs with verified metadata (film, artist, year).
-- **Dedicated Playlist Experiences**: Browse complete 100-song lists or play through entire collections.
-- **Real-Time Search**: Search songs by title, singer, film, or release year across the entire library.
-- **Persistent Music Player**: Uninterrupted playback across all pages and views.
-- **Mini Player & Full Player**: Bottom dock controls with seek bar, volume, queue drawer, and an immersive modal experience.
-- **YouTube-Based Playback**: Seamless audio streaming powered by the official YouTube IFrame API.
-- **Responsive Design**: Tailored visual experiences for desktop, tablet, and mobile screens.
-- **Kerala Photographic Atmosphere**: Atmospheric visual aesthetic rooted in old Kerala village culture and warm golden-hour lighting.
+- **300 Curated Malayalam Classics**: Hand-curated library with verified metadata (title, artist, film, year, duration).
+- **Responsive Photographic Backgrounds**: Dedicated, vibrant Kerala nostalgic backgrounds for each theme on both desktop and mobile devices.
+- **Persistent Audio Playback**: Uninterrupted listening across all views powered by the YouTube IFrame Player API.
+- **Mini Player & Full Player Modal**: Responsive bottom dock controls, interactive seekbar, volume controls, and a full-screen vinyl-style modal.
+- **Dynamic Play Queue**: View upcoming songs, shuffle playback, repeat modes, and add tracks on the fly.
+- **Instant Library Search**: Real-time search across all 300 tracks by song title, singer, movie name, or release year.
+- **Transparent Nostalgic Aesthetic**: Warm, minimal, translucent UI that lets the authentic Kerala imagery shine without dark or smoky overlays.
 
 ---
 
 ## Tech Stack
 
 - **Framework**: [Next.js](https://nextjs.org/) (App Router, Static Export)
-- **UI Library**: [React](https://react.dev/)
+- **UI & Logic**: [React](https://react.dev/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: Tailwind CSS & Custom CSS design tokens
-- **Audio Integration**: YouTube IFrame Player API
-- **Hosting**: GitHub Pages via GitHub Actions
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & Custom CSS Design System
+- **Player API**: Official YouTube IFrame Player API
+- **Deployment**: GitHub Pages via automated GitHub Actions
 
 ---
 
-## Getting Started
+## How to Run Locally
 
-### Prerequisites
+### 1. Clone the repository
+```bash
+git clone https://github.com/Himasajeeshkumar/Paattupetti.git
+cd Paattupetti
+```
 
-Ensure you have [Node.js](https://nodejs.org/) installed (version 18 or higher recommended).
+### 2. Install dependencies
+```bash
+npm install
+```
 
-### Installation
+### 3. Start the development server
+```bash
+npm run dev
+```
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Himasajeeshkumar/Paattupetti.git
-   cd Paattupetti
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open [http://localhost:3000/pattupetti/](http://localhost:3000/pattupetti/) with your browser to explore Paattupetti.
+Open [http://localhost:3000/pattupetti/](http://localhost:3000/pattupetti/) in your browser to view the application.
 
 ---
 
-## Production Build & Deployment
+## Build & Production Export
 
-To create an optimized static export:
+To create an optimized static production build for GitHub Pages or static hosting:
 
 ```bash
 npm run build
 ```
 
-This generates the static site in the `out/` directory.
+The exported site will be generated in the `out/` directory.
 
-### GitHub Pages Deployment
+---
 
-The repository is configured with automated GitHub Actions (`.github/workflows/deploy.yml`) that automatically builds and deploys the project to GitHub Pages upon pushing to the `main` branch.
+## GitHub Repository & Deployment
 
-Live at: [https://himasajeeshkumar.github.io/pattupetti/](https://himasajeeshkumar.github.io/pattupetti/)
+- **Repository**: [https://github.com/Himasajeeshkumar/Paattupetti](https://github.com/Himasajeeshkumar/Paattupetti)
+- **Workflow**: Automated deployment is handled via `.github/workflows/deploy.yml` upon push to the `main` branch.
 
 ---
 
 ## License
 
-This project is created for personal and educational appreciation of evergreen Malayalam film music.
+Created for personal and educational appreciation of classic Malayalam cinema music.
