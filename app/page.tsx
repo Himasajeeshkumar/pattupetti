@@ -20,6 +20,13 @@ function App() {
   const activePlaylist =
     playlists.find((p) => p.id === selectedPlaylistId) ?? playlists[0];
 
+  const activeTheme =
+    view === "playlist-detail"
+      ? selectedPlaylistId
+      : view === "playlists"
+      ? selectedPlaylistId
+      : "golden-memories";
+
   const allTracks = useMemo(
     () => playlists.flatMap((p) => p.tracks.map((t) => ({ ...t, playlistId: p.id }))),
     []
@@ -44,11 +51,9 @@ function App() {
   };
 
   return (
-    <div className="page-shell pb-32 text-cream selection:bg-marigold selection:text-ink">
-      {/* Paattupetti Kerala Photographic Scene Background (Full-page, clearly visible) */}
+    <div className={`page-shell pb-32 text-cream selection:bg-marigold selection:text-ink theme-${activeTheme}`}>
+      {/* Paattupetti Kerala Photographic Scene Background (Full-page, clearly visible without dark/smoky overlays) */}
       <div className="paattupetti-bg" />
-      <div className="atmosphere-overlay" />
-      <div className="grain-overlay" />
 
       {/* Header — Transparent, Minimal & Elegant */}
       <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[rgba(8,11,14,0.40)] shadow-[0_4px_25px_rgba(0,0,0,0.3)]">

@@ -19,7 +19,6 @@ type PlayerContextValue = {
   isMuted: boolean;
   shuffle: boolean;
   repeat: RepeatMode;
-  favorites: string[];
   recent: QueueItem[];
   queueOpen: boolean;
   setQueueOpen: (open: boolean) => void;
@@ -35,8 +34,6 @@ type PlayerContextValue = {
   toggleMute: () => void;
   toggleShuffle: () => void;
   cycleRepeat: () => void;
-  toggleFavorite: (trackId: string) => void;
-  isFavorite: (trackId: string) => boolean;
   removeFromQueue: (trackId: string, index: number) => void;
   clearQueue: () => void;
   playNext: (track: Track, playlistId: string) => void;
@@ -69,7 +66,6 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   const [repeat, setRepeat] = useState<RepeatMode>("off");
   const [volume, setVolumeState] = useState(80);
   const [isMuted, setMuted] = useState(false);
-  const [favorites, setFavorites] = useState<string[]>([]);
   const [recent, setRecent] = useState<QueueItem[]>([]);
   const [queueOpen, setQueueOpen] = useState(false);
   const [fullOpen, setFullOpen] = useState(false);
@@ -86,12 +82,10 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   shuffleRef.current = shuffle;
 
   useEffect(() => {
-    setFavorites(readStorage<string[]>("paattupetti:favorites", []));
     setRecent(readStorage<QueueItem[]>("paattupetti:recent", []));
     setVolumeState(readStorage<number>("paattupetti:volume", 80));
   }, []);
 
-  useEffect(() => localStorage.setItem("paattupetti:favorites", JSON.stringify(favorites)), [favorites]);
   useEffect(() => localStorage.setItem("paattupetti:recent", JSON.stringify(recent)), [recent]);
   useEffect(() => localStorage.setItem("paattupetti:volume", JSON.stringify(volume)), [volume]);
 
@@ -211,10 +205,6 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     setRepeat((r) => r === "off" ? "all" : r === "all" ? "one" : "off");
   }, []);
 
-  const toggleFavorite = useCallback((trackId: string) => {
-    setFavorites((prev) => prev.includes(trackId) ? prev.filter((id) => id !== trackId) : [...prev, trackId]);
-  }, []);
-
   const removeFromQueue = useCallback((trackId: string, index: number) => {
     setQueue((prev) => prev.filter((x, i) => !(x.id === trackId && i === index)));
     if (index < queueIndexRef.current) setQueueIndex((i) => Math.max(0, i - 1));
@@ -259,10 +249,10 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   const value = useMemo<PlayerContextValue>(() => ({
     current, queue, upcoming, isPlaying: yt.isPlaying, currentTime: yt.currentTime,
     duration: yt.duration || current.duration, volume, isMuted, shuffle, repeat,
-    favorites, recent, queueOpen, setQueueOpen, fullOpen, setFullOpen, playTrack, playAll, togglePlay: () => yt.isPlaying ? yt.pause() : yt.play(),
-    next, previous, seek: yt.seekTo, setVolume, toggleMute, toggleShuffle, cycleRepeat, toggleFavorite,
-    isFavorite: (id) => favorites.includes(id), removeFromQueue, clearQueue, playNext,
-  }), [current, queue, upcoming, yt.isPlaying, yt.currentTime, yt.duration, volume, isMuted, shuffle, repeat, favorites, recent, queueOpen, fullOpen, playTrack, playAll, next, previous, yt, setVolume, toggleMute, toggleShuffle, cycleRepeat, toggleFavorite, removeFromQueue, clearQueue, playNext]);
+    recent, queueOpen, setQueueOpen, fullOpen, setFullOpen, playTrack, playAll, togglePlay: () => yt.isPlaying ? yt.pause() : yt.play(),
+    next, previous, seek: yt.seekTo, setVolume, toggleMute, toggleShuffle, cycleRepeat,
+    removeFromQueue, clearQueue, playNext,
+  }), [current, queue, upcoming, yt.isPlaying, yt.currentTime, yt.duration, volume, isMuted, shuffle, repeat, recent, queueOpen, fullOpen, playTrack, playAll, next, previous, yt, setVolume, toggleMute, toggleShuffle, cycleRepeat, removeFromQueue, clearQueue, playNext]);
 
   return <PlayerContext.Provider value={value}>
     {children}
