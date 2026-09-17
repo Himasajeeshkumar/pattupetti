@@ -32,15 +32,17 @@ html, body {
 }
 
 /* =========================================================================
-   Paattupetti Kerala Photographic Scene Backgrounds
-   - Clean, vibrant, fully visible backgrounds without smoky or dark overlays
-   - Separate responsive compositions for Desktop vs Mobile
+   Paattupetti Kerala Photographic Scene Background (Global Background)
+   - Clean, vibrant, fully visible background without smoky or dark overlays
+   - Desktop / Laptop: scene-wide.png
+   - Mobile / Phone: scene-tall.png
    ========================================================================= */
 
 .paattupetti-bg {
   position: fixed;
   inset: 0;
   z-index: -2;
+  background-image: url('/pattupetti/images/backgrounds/scene-wide.png'), url('/images/backgrounds/scene-wide.png'), url('/scene-wide.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -48,43 +50,9 @@ html, body {
   transition: background-image 0.4s ease-in-out;
 }
 
-/* 1. Golden Memories Theme */
-.theme-golden-memories .paattupetti-bg,
-.paattupetti-bg {
-  background-image: url('/pattupetti/images/backgrounds/golden-memories-desktop.png'), url('/images/backgrounds/golden-memories-desktop.png');
-  background-position: center center;
-}
-
-@media (max-width: 768px), (orientation: portrait) {
-  .theme-golden-memories .paattupetti-bg,
+@media (max-width: 767px), (orientation: portrait) {
   .paattupetti-bg {
-    background-image: url('/pattupetti/images/backgrounds/golden-memories-mobile.png'), url('/images/backgrounds/golden-memories-mobile.png');
-    background-position: center center;
-  }
-}
-
-/* 2. Monsoon Memories Theme */
-.theme-monsoon-memories .paattupetti-bg {
-  background-image: url('/pattupetti/images/backgrounds/monsoon-desktop.png'), url('/images/backgrounds/monsoon-desktop.png');
-  background-position: center center;
-}
-
-@media (max-width: 768px), (orientation: portrait) {
-  .theme-monsoon-memories .paattupetti-bg {
-    background-image: url('/pattupetti/images/backgrounds/monsoon-mobile.png'), url('/images/backgrounds/monsoon-mobile.png');
-    background-position: center center;
-  }
-}
-
-/* 3. Night Radio Theme */
-.theme-night-radio .paattupetti-bg {
-  background-image: url('/pattupetti/images/backgrounds/night-radio-desktop.png'), url('/images/backgrounds/night-radio-desktop.png');
-  background-position: center center;
-}
-
-@media (max-width: 768px), (orientation: portrait) {
-  .theme-night-radio .paattupetti-bg {
-    background-image: url('/pattupetti/images/backgrounds/night-radio-mobile.png'), url('/images/backgrounds/night-radio-mobile.png');
+    background-image: url('/pattupetti/images/backgrounds/scene-tall.png'), url('/images/backgrounds/scene-tall.png'), url('/scene-tall.png');
     background-position: center center;
   }
 }
