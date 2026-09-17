@@ -36,7 +36,7 @@ html, body {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background-image: url('/scene-wide.png');
+  background-image: url('/Paattupetti/scene-wide.png'), url('/scene-wide.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@ html, body {
 
 @media (orientation: portrait), (max-width: 768px) {
   .paattupetti-bg {
-    background-image: url('/scene-tall.png');
+    background-image: url('/Paattupetti/scene-tall.png'), url('/scene-tall.png');
     background-position: center 25%;
   }
 }

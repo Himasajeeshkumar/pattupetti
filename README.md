@@ -2,6 +2,8 @@
 
 > Malayalam Nostalgic Radio & Music Archive
 
+🌐 **Live Website**: [https://himasajeeshkumar.github.io/Paattupetti/](https://himasajeeshkumar.github.io/Paattupetti/)
+
 Paattupetti (പാട്ടുപെട്ടി) is a nostalgic Malayalam music web application inspired by the atmospheric charm of vintage Kerala cassette shops, tea-stall radios, monsoon downpours, and soulful late-night melodies.
 
 ---
@@ -31,11 +33,12 @@ The archive contains 300 hand-curated, evergreen Malayalam songs categorized int
 
 ## Tech Stack
 
-- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Framework**: [Next.js](https://nextjs.org/) (App Router, Static Export)
 - **UI Library**: [React](https://react.dev/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: Tailwind CSS & Custom CSS design tokens
 - **Audio Integration**: YouTube IFrame Player API
+- **Hosting**: GitHub Pages via GitHub Actions
 
 ---
 
@@ -63,18 +66,25 @@ Ensure you have [Node.js](https://nodejs.org/) installed (version 18 or higher r
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to explore Paattupetti.
+4. Open [http://localhost:3000/Paattupetti/](http://localhost:3000/Paattupetti/) with your browser to explore Paattupetti.
 
 ---
 
-## Production Build
+## Production Build & Deployment
 
-To create an optimized production build:
+To create an optimized static export:
 
 ```bash
 npm run build
-npm start
 ```
+
+This generates the static site in the `out/` directory.
+
+### GitHub Pages Deployment
+
+The repository is configured with automated GitHub Actions (`.github/workflows/deploy.yml`) that automatically builds and deploys the project to GitHub Pages upon pushing to the `main` branch.
+
+Live at: [https://himasajeeshkumar.github.io/Paattupetti/](https://himasajeeshkumar.github.io/Paattupetti/)
 
 ---
 
