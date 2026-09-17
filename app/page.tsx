@@ -29,11 +29,29 @@ function App() {
 
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "/pattupetti";
 
-  const getPlaylistCover = (playlist: Playlist) => {
-    if (playlist.id === "monsoon-memories") {
-      return `${basePath}/images/backgrounds/monsoon-desktop.png`;
-    }
-    return `https://i.ytimg.com/vi/${playlist.tracks[0]?.videoId || ""}/hqdefault.jpg`;
+  const PLAYLIST_COVERS: Record<string, { desktop: string; mobile: string }> = {
+    "golden-memories": {
+      desktop: "/images/backgrounds/golden-memories-desktop.png",
+      mobile: "/images/backgrounds/golden-memories-mobile.png",
+    },
+    "monsoon-memories": {
+      desktop: "/images/backgrounds/monsoon-desktop.png",
+      mobile: "/images/backgrounds/monsoon-mobile.png",
+    },
+    "night-radio": {
+      desktop: "/images/backgrounds/night-radio-desktop.png",
+      mobile: "/images/backgrounds/night-radio-mobile.png",
+    },
+  };
+
+  const getPlaylistCover = (id: string) => {
+    const c = PLAYLIST_COVERS[id] ?? PLAYLIST_COVERS["golden-memories"];
+    return {
+      desktop: `${basePath}${c.desktop}`,
+      mobile: `${basePath}${c.mobile}`,
+      rawDesktop: c.desktop,
+      rawMobile: c.mobile,
+    };
   };
 
   const allTracks = useMemo(
@@ -212,61 +230,65 @@ function App() {
               </div>
 
               <div className="grid gap-5 sm:grid-cols-3">
-                {playlists.map((p) => (
-                  <div
-                    key={p.id}
-                    className="translucent-card group relative flex flex-col justify-between overflow-hidden rounded-2xl p-5 transition-all duration-300"
-                  >
-                    <div>
-                      <div className="relative mb-4 aspect-[16/10] w-full overflow-hidden rounded-xl border border-marigold/20 bg-black/40">
-                        <img
-                          src={getPlaylistCover(p)}
-                          alt={p.name}
-                          onError={(e) => {
-                            if (p.id === "monsoon-memories") {
-                              (e.currentTarget as HTMLImageElement).src = "/images/backgrounds/monsoon-desktop.png";
-                            }
-                          }}
-                          className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                        <span className="absolute bottom-2.5 left-2.5 rounded-md bg-marigold px-2.5 py-0.5 font-mono text-[11px] font-bold text-ink shadow-md">
-                          100 Tracks
-                        </span>
+                {playlists.map((p) => {
+                  const cover = getPlaylistCover(p.id);
+                  return (
+                    <div
+                      key={p.id}
+                      className="translucent-card group relative flex flex-col justify-between overflow-hidden rounded-2xl p-5 transition-all duration-300"
+                    >
+                      <div>
+                        <div className="relative mb-4 aspect-[16/10] w-full overflow-hidden rounded-xl border border-marigold/20 bg-black/40">
+                          <picture className="block h-full w-full">
+                            <source media="(max-width: 767px)" srcSet={cover.mobile} />
+                            <img
+                              src={cover.desktop}
+                              alt={p.name}
+                              onError={(e) => {
+                                (e.currentTarget as HTMLImageElement).src = cover.rawDesktop;
+                              }}
+                              className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+                            />
+                          </picture>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                          <span className="absolute bottom-2.5 left-2.5 rounded-md bg-marigold px-2.5 py-0.5 font-mono text-[11px] font-bold text-ink shadow-md">
+                            100 Tracks
+                          </span>
+                        </div>
+
+                        <h3 className="font-display text-xl font-bold text-cream group-hover:text-marigold-2">
+                          {p.name}
+                        </h3>
+                        <p className="mt-2 text-xs leading-relaxed text-cream/70">
+                          {p.id === "golden-memories"
+                            ? "Evergreen cassette-era masterpieces from Malayalam cinema."
+                            : p.id === "monsoon-memories"
+                            ? "Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon mood."
+                            : "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."}
+                        </p>
                       </div>
 
-                      <h3 className="font-display text-xl font-bold text-cream group-hover:text-marigold-2">
-                        {p.name}
-                      </h3>
-                      <p className="mt-2 text-xs leading-relaxed text-cream/70">
-                        {p.id === "golden-memories"
-                          ? "Evergreen cassette-era masterpieces from Malayalam cinema."
-                          : p.id === "monsoon-memories"
-                          ? "Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon mood."
-                          : "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."}
-                      </p>
-                    </div>
+                      <div className="mt-5 flex items-center gap-2 pt-4 border-t border-white/[0.08]">
+                        <button
+                          type="button"
+                          onClick={() => openPlaylistDetail(p.id)}
+                          className="flex-1 rounded-lg border border-marigold/25 bg-white/[0.04] py-2 text-xs font-semibold text-cream transition hover:border-marigold/45 hover:bg-marigold/10"
+                        >
+                          Explore / View 100 Songs
+                        </button>
 
-                    <div className="mt-5 flex items-center gap-2 pt-4 border-t border-white/[0.08]">
-                      <button
-                        type="button"
-                        onClick={() => openPlaylistDetail(p.id)}
-                        className="flex-1 rounded-lg border border-marigold/25 bg-white/[0.04] py-2 text-xs font-semibold text-cream transition hover:border-marigold/45 hover:bg-marigold/10"
-                      >
-                        Explore / View 100 Songs
-                      </button>
-
-                      <button
-                        type="button"
-                        aria-label={`Play ${p.name}`}
-                        onClick={() => player.playAll(p.id)}
-                        className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-b from-marigold-2 to-marigold text-ink shadow-md transition hover:scale-105 active:scale-95"
-                      >
-                        <AppIcon name="play" size={16} />
-                      </button>
+                        <button
+                          type="button"
+                          aria-label={`Play ${p.name}`}
+                          onClick={() => player.playAll(p.id)}
+                          className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-b from-marigold-2 to-marigold text-ink shadow-md transition hover:scale-105 active:scale-95"
+                        >
+                          <AppIcon name="play" size={16} />
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </section>
 
@@ -324,61 +346,65 @@ function App() {
             </div>
 
             <div className="grid gap-6 sm:grid-cols-3">
-              {playlists.map((p) => (
-                <div
-                  key={p.id}
-                  className="translucent-card group flex flex-col justify-between overflow-hidden rounded-[22px] p-6 transition-all duration-300"
-                >
-                  <div>
-                    <div className="relative mb-5 aspect-[4/3] w-full overflow-hidden rounded-xl border border-marigold/20 bg-black/40">
-                      <img
-                        src={getPlaylistCover(p)}
-                        alt={p.name}
-                        onError={(e) => {
-                          if (p.id === "monsoon-memories") {
-                            (e.currentTarget as HTMLImageElement).src = "/images/backgrounds/monsoon-desktop.png";
-                          }
-                        }}
-                        className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                      <span className="absolute bottom-3 left-3 rounded-lg bg-marigold px-3 py-1 font-mono text-xs font-bold text-ink shadow-md">
-                        100 Tracks
-                      </span>
+              {playlists.map((p) => {
+                const cover = getPlaylistCover(p.id);
+                return (
+                  <div
+                    key={p.id}
+                    className="translucent-card group flex flex-col justify-between overflow-hidden rounded-[22px] p-6 transition-all duration-300"
+                  >
+                    <div>
+                      <div className="relative mb-5 aspect-[4/3] w-full overflow-hidden rounded-xl border border-marigold/20 bg-black/40">
+                        <picture className="block h-full w-full">
+                          <source media="(max-width: 767px)" srcSet={cover.mobile} />
+                          <img
+                            src={cover.desktop}
+                            alt={p.name}
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).src = cover.rawDesktop;
+                            }}
+                            className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+                          />
+                        </picture>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                        <span className="absolute bottom-3 left-3 rounded-lg bg-marigold px-3 py-1 font-mono text-xs font-bold text-ink shadow-md">
+                          100 Tracks
+                        </span>
+                      </div>
+
+                      <h2 className="font-display text-2xl font-bold text-cream group-hover:text-marigold-2">
+                        {p.name}
+                      </h2>
+                      <p className="mt-2.5 text-xs leading-relaxed text-cream/70">
+                        {p.id === "golden-memories"
+                          ? "Evergreen cassette-era masterpieces from Malayalam cinema."
+                          : p.id === "monsoon-memories"
+                          ? "Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon mood."
+                          : "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."}
+                      </p>
                     </div>
 
-                    <h2 className="font-display text-2xl font-bold text-cream group-hover:text-marigold-2">
-                      {p.name}
-                    </h2>
-                    <p className="mt-2.5 text-xs leading-relaxed text-cream/70">
-                      {p.id === "golden-memories"
-                        ? "Evergreen cassette-era masterpieces from Malayalam cinema."
-                        : p.id === "monsoon-memories"
-                        ? "Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon mood."
-                        : "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."}
-                    </p>
-                  </div>
+                    <div className="mt-6 flex items-center gap-3 pt-4 border-t border-white/[0.08]">
+                      <button
+                        type="button"
+                        onClick={() => openPlaylistDetail(p.id)}
+                        className="flex-1 rounded-xl border border-marigold/30 bg-white/[0.05] py-2.5 text-xs font-semibold text-cream transition hover:border-marigold/50 hover:bg-marigold/10"
+                      >
+                        Browse 100 Songs
+                      </button>
 
-                  <div className="mt-6 flex items-center gap-3 pt-4 border-t border-white/[0.08]">
-                    <button
-                      type="button"
-                      onClick={() => openPlaylistDetail(p.id)}
-                      className="flex-1 rounded-xl border border-marigold/30 bg-white/[0.05] py-2.5 text-xs font-semibold text-cream transition hover:border-marigold/50 hover:bg-marigold/10"
-                    >
-                      Browse 100 Songs
-                    </button>
-
-                    <button
-                      type="button"
-                      aria-label={`Play ${p.name}`}
-                      onClick={() => player.playAll(p.id)}
-                      className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-b from-marigold-2 to-marigold text-ink shadow-[0_2px_12px_rgba(232,163,61,0.4)] transition hover:scale-105 active:scale-95"
-                    >
-                      <AppIcon name="play" size={18} />
-                    </button>
+                      <button
+                        type="button"
+                        aria-label={`Play ${p.name}`}
+                        onClick={() => player.playAll(p.id)}
+                        className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-b from-marigold-2 to-marigold text-ink shadow-[0_2px_12px_rgba(232,163,61,0.4)] transition hover:scale-105 active:scale-95"
+                      >
+                        <AppIcon name="play" size={18} />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
