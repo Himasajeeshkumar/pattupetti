@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #080a0c;
+  --color-ink-2: #121619;
+  --color-moss: #141c1a;
+  --color-cream: #f5efe6;
+  --color-cream-dim: rgba(245, 239, 230, 0.70);
+  --color-marigold: #e8a33d;
+  --color-marigold-2: #f4c065;
+  --color-rose: #d9534f;
+  --font-display: "Fraunces", "Noto Serif Malayalam", Georgia, serif;
+  --font-body: "Manrope", "Noto Sans Malayalam", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html, body {
+  min-height: 100%;
+  background-color: #080a0c;
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Page shell establishing a self-contained stacking context */
+.page-shell {
+  position: relative;
+  min-height: 100dvh;
+  isolation: isolate;
+}
+
+/* Paattupetti Kerala Photographic Scene Background (Clearly Visible Across Entire App) */
+.paattupetti-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: url('/scene-wide.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: brightness(0.98) contrast(1.02);
+  pointer-events: none;
+}
+
+@media (orientation: portrait), (max-width: 768px) {
+  .paattupetti-bg {
+    background-image: url('/scene-tall.png');
+    background-position: center 25%;
+  }
+}
+
+/* Very subtle atmosphere overlay to preserve photograph clarity while ensuring crisp text readability */
+.atmosphere-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(232, 163, 61, 0.08) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.45) 100%);
+  pointer-events: none;
+}
+
+/* Subtle Nostalgic Film Grain */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* Transparent Natural Panels & Cards (No Glassmorphism, No Opaque Black) */
+.translucent-panel {
+  border: 1px solid rgba(232, 163, 61, 0.20);
+  background-color: rgba(9, 12, 16, 0.45);
+  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.translucent-card {
+  border: 1px solid rgba(232, 163, 61, 0.18);
+  background-color: rgba(10, 14, 18, 0.40);
+  box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.translucent-card:hover {
+  border-color: rgba(232, 163, 61, 0.45);
+  background-color: rgba(14, 18, 24, 0.60);
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.65), 0 0 20px rgba(232, 163, 61, 0.15);
+}
+
+.translucent-card-active {
+  border: 1px solid rgba(232, 163, 61, 0.60);
+  background-color: rgba(18, 24, 32, 0.70);
+  box-shadow: 0 10px 30px -8px rgba(232, 163, 61, 0.25), inset 0 1px 0 rgba(244, 192, 101, 0.2);
+}
+
+/* Aliases for backwards compatibility */
+.dark-panel {
+  border: 1px solid rgba(232, 163, 61, 0.20);
+  background-color: rgba(9, 12, 16, 0.45);
+  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.5);
+}
+
+.dark-card {
+  border: 1px solid rgba(232, 163, 61, 0.18);
+  background-color: rgba(10, 14, 18, 0.40);
+  box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.5);
+}
+
+.dark-card-active {
+  border: 1px solid rgba(232, 163, 61, 0.60);
+  background-color: rgba(18, 24, 32, 0.70);
+}
+
+/* Custom Amber Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(232, 163, 61, 0.45) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(232, 163, 61, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(232, 163, 61, 0.7);
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input[type=range] {
+  accent-color: var(--color-marigold);
+}
