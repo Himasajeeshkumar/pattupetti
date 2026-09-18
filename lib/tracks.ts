@@ -127,8 +127,8 @@ export const playlists: Playlist[] = [
         "film": "Summer in Bethlehem",
         "year": 1998,
         "duration": 321,
-        "videoId": "O3ViBd5hQj4"
-      },
+        "videoId": "O3ViBd5hQj4",
+        "audioSrc": "/audio/011-oru-raathri-kooti.mp3"},
       {
         "id": "gm-12",
         "title": "ആവണിപ്പൊന്നൂഞ്ഞാൽ",
@@ -136,8 +136,8 @@ export const playlists: Playlist[] = [
         "film": "Kottaram Veettile Apputtan",
         "year": 1998,
         "duration": 265,
-        "videoId": "GYEIurfHXVk"
-      },
+        "videoId": "GYEIurfHXVk",
+        "audioSrc": "/audio/012-aavanipponnoonjaal.mp3"},
       {
         "id": "gm-13",
         "title": "അമ്പാടി പയ്യുകൾ മേയും",
@@ -145,8 +145,8 @@ export const playlists: Playlist[] = [
         "film": "Chandranudikkunnadhikkil",
         "year": 1999,
         "duration": 300,
-        "videoId": "-Uk4vPog1vs"
-      },
+        "videoId": "-Uk4vPog1vs",
+        "audioSrc": "/audio/013-ampaati-payyukal-meyum.mp3"},
       {
         "id": "gm-14",
         "title": "നാടോടി പൂന്തിങ്കൾ",
@@ -154,8 +154,8 @@ export const playlists: Playlist[] = [
         "film": "Oru Maravathoor Kanavu",
         "year": 1998,
         "duration": 300,
-        "videoId": "PbMTpWsa8A8"
-      },
+        "videoId": "PbMTpWsa8A8",
+        "audioSrc": "/audio/014-naatoti-poonthingkal.mp3"},
       {
         "id": "gm-15",
         "title": "പൂക്കാലം വന്നു പൂക്കാലം",
@@ -163,8 +163,8 @@ export const playlists: Playlist[] = [
         "film": "Godfather",
         "year": 1991,
         "duration": 301,
-        "videoId": "NO7N6ZrvgkM"
-      },
+        "videoId": "NO7N6ZrvgkM",
+        "audioSrc": "/audio/015-pookkaalam-vannu-pookkaalam.mp3"},
       {
         "id": "gm-16",
         "title": "ചിങ്കാരക്കിന്നാരം",
@@ -172,8 +172,8 @@ export const playlists: Playlist[] = [
         "film": "Minnaram",
         "year": 1994,
         "duration": 250,
-        "videoId": "xKT7JwBLi74"
-      },
+        "videoId": "xKT7JwBLi74",
+        "audioSrc": "/audio/016-chingkaarakkinnaaram.mp3"},
       {
         "id": "gm-17",
         "title": "തെച്ചിപ്പൂവേ",
@@ -181,8 +181,8 @@ export const playlists: Playlist[] = [
         "film": "Pookkalam Varavayi",
         "year": 1991,
         "duration": 300,
-        "videoId": "kU0Ie38VMB4"
-      },
+        "videoId": "kU0Ie38VMB4",
+        "audioSrc": "/audio/017-thechchippoove.mp3"},
       {
         "id": "gm-18",
         "title": "കന്നിപ്പീലി തൂവലൊതുക്കും",
@@ -190,8 +190,8 @@ export const playlists: Playlist[] = [
         "film": "Thoovalsparsham",
         "year": 1990,
         "duration": 300,
-        "videoId": "IkhKZzuHLMM"
-      },
+        "videoId": "IkhKZzuHLMM",
+        "audioSrc": "/audio/018-kannippeeli-thoovalothukkum.mp3"},
       {
         "id": "gm-19",
         "title": "തങ്കത്തിങ്കൾ",
@@ -199,8 +199,8 @@ export const playlists: Playlist[] = [
         "film": "Indraprastham",
         "year": 1996,
         "duration": 300,
-        "videoId": "oLVEQLfhM2I"
-      },
+        "videoId": "oLVEQLfhM2I",
+        "audioSrc": "/audio/019-thangkaththingkal.mp3"},
       {
         "id": "gm-20",
         "title": "വെള്ളിനിലാ തുള്ളികളോ",
@@ -208,8 +208,8 @@ export const playlists: Playlist[] = [
         "film": "Varnappakittu",
         "year": 1997,
         "duration": 300,
-        "videoId": "tQ19dswa-vk"
-      },
+        "videoId": "tQ19dswa-vk",
+        "audioSrc": "/audio/020-vellinilaa-thullikalo.mp3"},
       {
         "id": "gm-21",
         "title": "മാണിക്യക്കല്ലാൽ",
@@ -217,8 +217,8 @@ export const playlists: Playlist[] = [
         "film": "Varnappakittu",
         "year": 1997,
         "duration": 300,
-        "videoId": "wcNh7dkZ3XU"
-      },
+        "videoId": "wcNh7dkZ3XU",
+        "audioSrc": "/audio/021-maanikyakkallaal.mp3"},
       {
         "id": "gm-22",
         "title": "എന്നും നിന്നെ പൂജിക്കാം",
@@ -226,8 +226,8 @@ export const playlists: Playlist[] = [
         "film": "Aniyathipraavu",
         "year": 1997,
         "duration": 300,
-        "videoId": "G8_hWm71Fow"
-      },
+        "videoId": "G8_hWm71Fow",
+        "audioSrc": "/audio/022-ennum-ninne-poojikkaam.mp3"},
       {
         "id": "gm-23",
         "title": "തത്തമ്മപ്പേരു",
@@ -235,8 +235,8 @@ export const playlists: Playlist[] = [
         "film": "Dosth",
         "year": 2001,
         "duration": 272,
-        "videoId": "J27NwQ2RXw8"
-      },
+        "videoId": "J27NwQ2RXw8",
+        "audioSrc": "/audio/023-thaththammapperu.mp3"},
       {
         "id": "gm-24",
         "title": "ശിശിരകാല മേഘ മിഥുന",
@@ -244,8 +244,8 @@ export const playlists: Playlist[] = [
         "film": "Devaragam",
         "year": 1996,
         "duration": 300,
-        "videoId": "crYC9aOuP24"
-      },
+        "videoId": "crYC9aOuP24",
+        "audioSrc": "/audio/024-shishirakaala-megha-mithuna.mp3"},
       {
         "id": "gm-25",
         "title": "കുനു കുനെ",
@@ -253,8 +253,8 @@ export const playlists: Playlist[] = [
         "film": "Yodha",
         "year": 1992,
         "duration": 231,
-        "videoId": "ijskdMbThmo"
-      },
+        "videoId": "ijskdMbThmo",
+        "audioSrc": "/audio/025-kunu-kune.mp3"},
       {
         "id": "gm-26",
         "title": "മന്ദാരച്ചെപ്പുണ്ടോ",
@@ -262,8 +262,8 @@ export const playlists: Playlist[] = [
         "film": "Dasharatham",
         "year": 1989,
         "duration": 240,
-        "videoId": "cEP6oU0Qug4"
-      },
+        "videoId": "cEP6oU0Qug4",
+        "audioSrc": "/audio/026-mandaarachcheppunto.mp3"},
       {
         "id": "gm-27",
         "title": "കിലുകിൽ പമ്പരം",
@@ -271,8 +271,8 @@ export const playlists: Playlist[] = [
         "film": "Kilukkam",
         "year": 1991,
         "duration": 283,
-        "videoId": "5ktGuZPeF60"
-      },
+        "videoId": "5ktGuZPeF60",
+        "audioSrc": "/audio/027-kilukil-pamparam.mp3"},
       {
         "id": "gm-28",
         "title": "കറുത്തപെണ്ണേ",
@@ -280,8 +280,8 @@ export const playlists: Playlist[] = [
         "film": "Thenmavin Kombathu",
         "year": 1994,
         "duration": 300,
-        "videoId": "JuUAh-02V4A"
-      },
+        "videoId": "JuUAh-02V4A",
+        "audioSrc": "/audio/028-karuththapenne.mp3"},
       {
         "id": "gm-29",
         "title": "അല്ലിമലർ കാവിൽ",
@@ -289,8 +289,8 @@ export const playlists: Playlist[] = [
         "film": "Mithunam",
         "year": 1993,
         "duration": 240,
-        "videoId": "43GUshLSEXY"
-      },
+        "videoId": "43GUshLSEXY",
+        "audioSrc": "/audio/029-allimalar-kaavil.mp3"},
       {
         "id": "gm-30",
         "title": "ഗോപികാ വസന്തം",
@@ -298,8 +298,8 @@ export const playlists: Playlist[] = [
         "film": "His Highness Abdullah",
         "year": 1990,
         "duration": 300,
-        "videoId": "KE0YE530BLs"
-      },
+        "videoId": "KE0YE530BLs",
+        "audioSrc": "/audio/030-gopikaa-vasantham.mp3"},
       {
         "id": "gm-31",
         "title": "പഴംതമിഴ് പാട്ടിഴയും",
@@ -307,8 +307,8 @@ export const playlists: Playlist[] = [
         "film": "Manichitrathazhu",
         "year": 1993,
         "duration": 300,
-        "videoId": "c30kl6okEaY"
-      },
+        "videoId": "c30kl6okEaY",
+        "audioSrc": "/audio/031-pazhamthamizh-paattizhayum.mp3"},
       {
         "id": "gm-32",
         "title": "വണ്ണാത്തിപ്പുഴയുടെ",
@@ -316,8 +316,8 @@ export const playlists: Playlist[] = [
         "film": "Kaliyattam",
         "year": 1997,
         "duration": 300,
-        "videoId": "HF-0SRzkRL0"
-      },
+        "videoId": "HF-0SRzkRL0",
+        "audioSrc": "/audio/032-vannaaththippuzhayute.mp3"},
       {
         "id": "gm-33",
         "title": "ചെമ്പൂവേ പൂവേ",
@@ -325,8 +325,8 @@ export const playlists: Playlist[] = [
         "film": "Kaalapani",
         "year": 1996,
         "duration": 300,
-        "videoId": "9xjAefn0QWc"
-      },
+        "videoId": "9xjAefn0QWc",
+        "audioSrc": "/audio/033-chempoove-poove.mp3"},
       {
         "id": "gm-34",
         "title": "സൂര്യകിരീടം",
@@ -334,8 +334,8 @@ export const playlists: Playlist[] = [
         "film": "Devasuram",
         "year": 1993,
         "duration": 300,
-        "videoId": "APHnXa-f8yA"
-      },
+        "videoId": "APHnXa-f8yA",
+        "audioSrc": "/audio/034-sooryakireetam.mp3"},
       {
         "id": "gm-35",
         "title": "മേഘം പൂത്തുതുടങ്ങി",
@@ -343,8 +343,8 @@ export const playlists: Playlist[] = [
         "film": "Thoovanathumbikal",
         "year": 1987,
         "duration": 300,
-        "videoId": "JJP5b3s-LRM"
-      },
+        "videoId": "JJP5b3s-LRM",
+        "audioSrc": "/audio/035-megham-pooththuthutangngi.mp3"},
       {
         "id": "gm-36",
         "title": "ഈറൻ മേഘം",
@@ -352,8 +352,8 @@ export const playlists: Playlist[] = [
         "film": "Chithram",
         "year": 1988,
         "duration": 300,
-        "videoId": "8-o2_5Iz0ik"
-      },
+        "videoId": "8-o2_5Iz0ik",
+        "audioSrc": "/audio/036-eeran-megham.mp3"},
       {
         "id": "gm-37",
         "title": "മാലേയം മാറോടലിഞ്ഞു",
@@ -361,8 +361,8 @@ export const playlists: Playlist[] = [
         "film": "Thacholi Varghese Chekavar",
         "year": 1995,
         "duration": 300,
-        "videoId": "_c4DrC3yJiw"
-      },
+        "videoId": "_c4DrC3yJiw",
+        "audioSrc": "/audio/037-maaleyam-maarotalinju.mp3"},
       {
         "id": "gm-38",
         "title": "പൊന്നിൽ കുളിച്ചു നിന്നു",
@@ -370,8 +370,8 @@ export const playlists: Playlist[] = [
         "film": "Sallapam",
         "year": 1996,
         "duration": 300,
-        "videoId": "c6iI03rViOI"
-      },
+        "videoId": "c6iI03rViOI",
+        "audioSrc": "/audio/038-ponnil-kulichchu-ninnu.mp3"},
       {
         "id": "gm-39",
         "title": "തുമ്പയും തുളസിയും",
@@ -379,8 +379,8 @@ export const playlists: Playlist[] = [
         "film": "Megham",
         "year": 1999,
         "duration": 300,
-        "videoId": "Imb92SceKNE"
-      },
+        "videoId": "Imb92SceKNE",
+        "audioSrc": "/audio/039-thumpayum-thulasiyum.mp3"},
       {
         "id": "gm-40",
         "title": "നിലാപ്പൈതലേ",
@@ -388,8 +388,8 @@ export const playlists: Playlist[] = [
         "film": "Olympian Anthony Adam",
         "year": 1999,
         "duration": 300,
-        "videoId": "lbHSnw-6hbI"
-      },
+        "videoId": "lbHSnw-6hbI",
+        "audioSrc": "/audio/040-nilaappaithale.mp3"},
       {
         "id": "gm-41",
         "title": "എന്റെ മനസ്സിലൊരു നാണം",
@@ -397,8 +397,8 @@ export const playlists: Playlist[] = [
         "film": "Thenmavin Kombathu",
         "year": 1994,
         "duration": 300,
-        "videoId": "yNrat8pIckg"
-      },
+        "videoId": "yNrat8pIckg",
+        "audioSrc": "/audio/041-enre-manassiloru-naanam.mp3"},
       {
         "id": "gm-42",
         "title": "ചെല്ലക്കാറ്റേ",
@@ -406,8 +406,8 @@ export const playlists: Playlist[] = [
         "film": "Kochu Kochu Santhoshangal",
         "year": 2000,
         "duration": 300,
-        "videoId": "hRm4Zp6BJVY"
-      },
+        "videoId": "hRm4Zp6BJVY",
+        "audioSrc": "/audio/042-chellakkaarre.mp3"},
       {
         "id": "gm-43",
         "title": "അമ്പലപ്പുഴെ ഉണ്ണിക്കണ്ണനോട്",
@@ -415,8 +415,8 @@ export const playlists: Playlist[] = [
         "film": "Adwaitham",
         "year": 1991,
         "duration": 311,
-        "videoId": "LQK5cnQGMaE"
-      },
+        "videoId": "LQK5cnQGMaE",
+        "audioSrc": "/audio/043-ampalappuzhe-unnikkannanot.mp3"},
       {
         "id": "gm-44",
         "title": "ശ്യാമമേഘമേ",
@@ -424,8 +424,8 @@ export const playlists: Playlist[] = [
         "film": "Adhipan",
         "year": 1989,
         "duration": 300,
-        "videoId": "QLVwGG1TZHk"
-      },
+        "videoId": "QLVwGG1TZHk",
+        "audioSrc": "/audio/044-shyaamameghame.mp3"},
       {
         "id": "gm-45",
         "title": "സുഖമോ ദേവീ",
@@ -433,8 +433,8 @@ export const playlists: Playlist[] = [
         "film": "Sukhamo Devi",
         "year": 1986,
         "duration": 300,
-        "videoId": "QPI9-Xt7VCk"
-      },
+        "videoId": "QPI9-Xt7VCk",
+        "audioSrc": "/audio/045-sukhamo-devee.mp3"},
       {
         "id": "gm-46",
         "title": "നീ എൻ സ്വർഗ സംഗീതമേ",
@@ -442,8 +442,8 @@ export const playlists: Playlist[] = [
         "film": "Kaathodu Kaathoram",
         "year": 1985,
         "duration": 300,
-        "videoId": "lnHWeOa0trA"
-      },
+        "videoId": "lnHWeOa0trA",
+        "audioSrc": "/audio/046-nee-en-svarga-samgeethame.mp3"},
       {
         "id": "gm-47",
         "title": "കണ്ടു ഞാൻ മിഴികളിൽ",
@@ -451,8 +451,8 @@ export const playlists: Playlist[] = [
         "film": "Abhimanyu",
         "year": 1991,
         "duration": 300,
-        "videoId": "zQ32wZ4jx-U"
-      },
+        "videoId": "zQ32wZ4jx-U",
+        "audioSrc": "/audio/047-kantu-njaan-mizhikalil.mp3"},
       {
         "id": "gm-48",
         "title": "പൊൻവീണേ എൻ ഉള്ളിൽ",
@@ -460,8 +460,8 @@ export const playlists: Playlist[] = [
         "film": "Thalavattam",
         "year": 1986,
         "duration": 300,
-        "videoId": "3vp4ddZ-bCI"
-      },
+        "videoId": "3vp4ddZ-bCI",
+        "audioSrc": "/audio/048-ponveene-en-ullil.mp3"},
       {
         "id": "gm-49",
         "title": "പാതിരാമഴയേതോ",
@@ -469,8 +469,8 @@ export const playlists: Playlist[] = [
         "film": "Ulladakkam",
         "year": 1991,
         "duration": 300,
-        "videoId": "7rQPiE588u0"
-      },
+        "videoId": "7rQPiE588u0",
+        "audioSrc": "/audio/049-paathiraamazhayetho.mp3"},
       {
         "id": "gm-50",
         "title": "നിലാവിന്റെ നീലഭസ്മം",
@@ -478,8 +478,8 @@ export const playlists: Playlist[] = [
         "film": "Agnidevan",
         "year": 1995,
         "duration": 300,
-        "videoId": "Vgm4pt1CFZQ"
-      },
+        "videoId": "Vgm4pt1CFZQ",
+        "audioSrc": "/audio/050-nilaavinre-neelabhasmam.mp3"},
       {
         "id": "gm-51",
         "title": "താമരപ്പൂവിൽ വാഴും",
