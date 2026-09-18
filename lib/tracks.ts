@@ -6,6 +6,7 @@ export type Track = {
   year: number;
   duration: number;
   videoId: string;
+  audioSrc?: string;
 };
 
 export type Playlist = {
@@ -26,7 +27,8 @@ export const playlists: Playlist[] = [
         "film": "Moonnam Pakkam",
         "year": 1988,
         "duration": 240,
-        "videoId": "n5Eo9uCMijM"
+        "videoId": "n5Eo9uCMijM",
+        "audioSrc": "/audio/001-unarumee-gaanam.mp3"
       },
       {
         "id": "gm-2",
@@ -35,7 +37,8 @@ export const playlists: Playlist[] = [
         "film": "Nadodikkattu",
         "year": 1987,
         "duration": 240,
-        "videoId": "tmTOUM5t1a4"
+        "videoId": "tmTOUM5t1a4",
+        "audioSrc": "/audio/002-vaishaakha-sandhye.mp3"
       },
       {
         "id": "gm-3",
@@ -44,7 +47,8 @@ export const playlists: Playlist[] = [
         "film": "Olangal",
         "year": 1982,
         "duration": 240,
-        "videoId": "8XBp0Jzssjg"
+        "videoId": "8XBp0Jzssjg",
+        "audioSrc": "/audio/003-thumpi-vaa-thumpakkutaththin.mp3"
       },
       {
         "id": "gm-4",
@@ -53,7 +57,8 @@ export const playlists: Playlist[] = [
         "film": "Kakkothikkavile Appooppan Thaadikal",
         "year": 1988,
         "duration": 228,
-        "videoId": "4if__kf5GY8"
+        "videoId": "4if__kf5GY8",
+        "audioSrc": "/audio/004-kannaamthumpi-poraamo.mp3"
       },
       {
         "id": "gm-5",
@@ -62,7 +67,8 @@ export const playlists: Playlist[] = [
         "film": "Aayushkaalam",
         "year": 1992,
         "duration": 240,
-        "videoId": "YG6AAEzu0d0"
+        "videoId": "YG6AAEzu0d0",
+        "audioSrc": "/audio/005-maunam-svaramaay.mp3"
       },
       {
         "id": "gm-6",
@@ -71,7 +77,8 @@ export const playlists: Playlist[] = [
         "film": "Pappayude Swantham Appoos",
         "year": 1992,
         "duration": 301,
-        "videoId": "QUdhrGLHP7w"
+        "videoId": "QUdhrGLHP7w",
+        "audioSrc": "/audio/006-snehaththin-poonjchola.mp3"
       },
       {
         "id": "gm-7",
@@ -80,7 +87,8 @@ export const playlists: Playlist[] = [
         "film": "Pappayude Swantham Appoos",
         "year": 1992,
         "duration": 304,
-        "videoId": "ELEaxpW1JPM"
+        "videoId": "ELEaxpW1JPM",
+        "audioSrc": "/audio/007-olaththumpaththirunnooyalaatum.mp3"
       },
       {
         "id": "gm-8",
@@ -89,7 +97,8 @@ export const playlists: Playlist[] = [
         "film": "Mayilpeelikkaavu",
         "year": 1998,
         "duration": 282,
-        "videoId": "yshVjybqRLA"
+        "videoId": "yshVjybqRLA",
+        "audioSrc": "/audio/008-mayilaay-parannuvaa.mp3"
       },
       {
         "id": "gm-9",
@@ -98,7 +107,8 @@ export const playlists: Playlist[] = [
         "film": "Pranayavarnangal",
         "year": 1998,
         "duration": 300,
-        "videoId": "NlPhhHfrBKE"
+        "videoId": "NlPhhHfrBKE",
+        "audioSrc": "/audio/009-kannaatikkootum-kootti.mp3"
       },
       {
         "id": "gm-10",
@@ -107,7 +117,8 @@ export const playlists: Playlist[] = [
         "film": "Pranayavarnangal",
         "year": 1998,
         "duration": 290,
-        "videoId": "ml4NsxByxFU"
+        "videoId": "ml4NsxByxFU",
+        "audioSrc": "/audio/010-varamanjalaatiya.mp3"
       },
       {
         "id": "gm-11",
