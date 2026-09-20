@@ -13,7 +13,7 @@ export default function TrackRow({
   playlistId: string;
   index: number;
 }) {
-  const { current, isPlaying, playTrack, playNext } = usePlayer();
+  const { current, isPlaying, playTrack, playNext, togglePlay } = usePlayer();
   const active = current.id === track.id;
 
   return (
@@ -28,7 +28,7 @@ export default function TrackRow({
       <button
         type="button"
         aria-label={active && isPlaying ? `Pause ${track.title}` : `Play ${track.title}`}
-        onClick={() => playTrack(track, playlistId)}
+        onClick={() => (active ? togglePlay() : playTrack(track, playlistId))}
         className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-transform active:scale-95 ${
           active
             ? "bg-gradient-to-b from-marigold-2 to-marigold text-ink shadow-[0_2px_10px_rgba(232,163,61,0.4)] font-bold"

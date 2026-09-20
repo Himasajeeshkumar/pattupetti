@@ -115,6 +115,54 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => localStorage.setItem("paattupetti:recent", JSON.stringify(recent)), [recent]);
   useEffect(() => localStorage.setItem("paattupetti:volume", JSON.stringify(volume)), [volume]);
 
+  const recordRecent = useCallback((item: QueueItem) => {
+    setRecent((prev) => [item, ...prev.filter((x) => x.id !== item.id)].slice(0, 12));
+  }, []);
+
+  const advanceRef = useRef<() => void>(() => {});
+
+  const onEnded = useCallback(() => {
+    advanceRef.current();
+  }, []);
+
+  const onError = useCallback((info: { code: number; videoId: string }) => {
+    trackAnalyticsEvent("youtube_playback_error", { code: info.code, videoId: info.videoId });
+    setPlaybackError("Playback error on YouTube stream. Advancing to next track...");
+    advanceRef.current();
+  }, []);
+
+  const yt = useYouTubePlayer({
+    elementId: PLAYER_ELEMENT_ID,
+    initialVideoId: firstTrack.videoId,
+    onEnded,
+    onError,
+  });
+
+  const loadAndStartTrack = useCallback((item: QueueItem) => {
+    setPlaybackError(null);
+    if (item.audioSrc) {
+      if (yt.isPlaying) yt.pause();
+      if (audioRef.current) {
+        const audio = audioRef.current;
+        const targetUrl = getAudioUrl(item.audioSrc);
+        audio.src = targetUrl;
+        audio.load();
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            console.warn("Local audio playback failed or was blocked:", err);
+          });
+        }
+      }
+    } else {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+      yt.loadVideo(item.videoId);
+      setTimeout(() => yt.play(), 80);
+    }
+  }, [yt]);
+
   // Advance logic (Auto-next)
   const advance = useCallback(() => {
     const q = queueRef.current;
@@ -124,7 +172,10 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
       const active = currentRef.current;
       if (active.audioSrc && audioRef.current) {
         audioRef.current.currentTime = 0;
-        audioRef.current.play().catch(() => {});
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
       } else {
         yt.loadVideo(active.videoId);
         setTimeout(() => yt.play(), 80);
@@ -143,42 +194,15 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     }
 
     const nextTrack = q[nextIndex];
+    queueIndexRef.current = nextIndex;
+    currentRef.current = nextTrack;
     setQueueIndex(nextIndex);
     setCurrent(nextTrack);
-    setPlaybackError(null);
+    recordRecent(nextTrack);
+    loadAndStartTrack(nextTrack);
+  }, [loadAndStartTrack, recordRecent, yt]);
 
-    if (nextTrack.audioSrc) {
-      if (yt.isPlaying) yt.pause();
-      if (audioRef.current) {
-        audioRef.current.src = getAudioUrl(nextTrack.audioSrc);
-        audioRef.current.currentTime = 0;
-        audioRef.current.play().catch((err) => {
-          console.warn("Auto-play local audio blocked or failed:", err);
-        });
-      }
-    } else {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-      yt.loadVideo(nextTrack.videoId);
-      setTimeout(() => yt.play(), 80);
-    }
-  }, []);
-
-  const onEnded = useCallback(() => advance(), [advance]);
-
-  const onError = useCallback((info: { code: number; videoId: string }) => {
-    trackAnalyticsEvent("youtube_playback_error", { code: info.code, videoId: info.videoId });
-    setPlaybackError("Playback error on YouTube stream. Advancing to next track...");
-    advance();
-  }, [advance]);
-
-  const yt = useYouTubePlayer({
-    elementId: PLAYER_ELEMENT_ID,
-    initialVideoId: firstTrack.videoId,
-    onEnded,
-    onError,
-  });
+  advanceRef.current = advance;
 
   // Setup HTMLAudioElement event listeners
   useEffect(() => {
@@ -189,13 +213,21 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
       setIsAudioPlaying(true);
       setPlaybackError(null);
     };
-    const handlePause = () => setIsAudioPlaying(false);
-    const handleTimeUpdate = () => setAudioCurrentTime(audio.currentTime);
-    const handleDurationChange = () => setAudioDuration(audio.duration || 0);
-    const handleLoadedMetadata = () => setAudioDuration(audio.duration || 0);
+    const handlePause = () => {
+      setIsAudioPlaying(false);
+    };
+    const handleTimeUpdate = () => {
+      setAudioCurrentTime(audio.currentTime);
+    };
+    const handleDurationChange = () => {
+      setAudioDuration(audio.duration || 0);
+    };
+    const handleLoadedMetadata = () => {
+      setAudioDuration(audio.duration || 0);
+    };
     const handleAudioEnded = () => {
       setIsAudioPlaying(false);
-      advance();
+      advanceRef.current();
     };
     const handleAudioError = (e: Event) => {
       console.error("Local audio loading/playback error:", e);
@@ -219,7 +251,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
       audio.removeEventListener("ended", handleAudioEnded);
       audio.removeEventListener("error", handleAudioError);
     };
-  }, [advance]);
+  }, []);
 
   // Sync volume with both Audio and YouTube
   useEffect(() => {
@@ -230,36 +262,15 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     yt.setVolume(volume);
   }, [volume, isMuted, yt]);
 
-  const recordRecent = useCallback((item: QueueItem) => {
-    setRecent((prev) => [item, ...prev.filter((x) => x.id !== item.id)].slice(0, 12));
-  }, []);
-
-  const loadAndStartTrack = useCallback((item: QueueItem) => {
-    setPlaybackError(null);
-    if (item.audioSrc) {
-      if (yt.isPlaying) yt.pause();
-      if (audioRef.current) {
-        audioRef.current.src = getAudioUrl(item.audioSrc);
-        audioRef.current.currentTime = 0;
-        audioRef.current.play().catch((err) => {
-          console.warn("Local audio play failed or was blocked:", err);
-        });
-      }
-    } else {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-      yt.loadVideo(item.videoId);
-      setTimeout(() => yt.play(), 80);
-    }
-  }, [yt]);
-
   const playTrack = useCallback((track: Track, playlistId: string, source?: Track[]) => {
     const items = makeQueue(source ?? playlists.find((p) => p.id === playlistId)?.tracks ?? [track], playlistId);
     const idx = Math.max(0, items.findIndex((x) => x.id === track.id));
+    const item = items[idx] ?? { ...track, playlistId };
+    queueRef.current = items;
+    queueIndexRef.current = idx;
+    currentRef.current = item;
     setQueue(items);
     setQueueIndex(idx);
-    const item = items[idx] ?? { ...track, playlistId };
     setCurrent(item);
     recordRecent(item);
     loadAndStartTrack(item);
@@ -270,12 +281,16 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     if (!p?.tracks.length) return;
     let items = makeQueue(p.tracks, p.id);
     if (shouldShuffle) items = [...items].sort(() => Math.random() - 0.5);
+    const item = items[0];
+    queueRef.current = items;
+    queueIndexRef.current = 0;
+    currentRef.current = item;
     setShuffle(shouldShuffle);
     setQueue(items);
     setQueueIndex(0);
-    setCurrent(items[0]);
-    recordRecent(items[0]);
-    loadAndStartTrack(items[0]);
+    setCurrent(item);
+    recordRecent(item);
+    loadAndStartTrack(item);
   }, [recordRecent, loadAndStartTrack]);
 
   const next = useCallback(() => {
@@ -284,6 +299,8 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     let idx = queueIndexRef.current + 1;
     if (idx >= q.length) idx = repeatRef.current === "all" ? 0 : q.length - 1;
     const item = q[idx];
+    queueIndexRef.current = idx;
+    currentRef.current = item;
     setQueueIndex(idx);
     setCurrent(item);
     recordRecent(item);
@@ -305,6 +322,8 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     let idx = queueIndexRef.current - 1;
     if (idx < 0) idx = repeatRef.current === "all" ? q.length - 1 : 0;
     const item = q[idx];
+    queueIndexRef.current = idx;
+    currentRef.current = item;
     setQueueIndex(idx);
     setCurrent(item);
     recordRecent(item);
@@ -312,14 +331,21 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   }, [isLocalTrack, recordRecent, loadAndStartTrack, yt]);
 
   const togglePlay = useCallback(() => {
-    if (current.audioSrc && audioRef.current) {
-      if (isAudioPlaying) {
-        audioRef.current.pause();
+    const active = currentRef.current;
+    if (active.audioSrc && audioRef.current) {
+      const audio = audioRef.current;
+      if (!audio.paused) {
+        audio.pause();
       } else {
-        if (!audioRef.current.src || !audioRef.current.src.includes(current.audioSrc)) {
-          audioRef.current.src = getAudioUrl(current.audioSrc);
+        const expectedSrc = getAudioUrl(active.audioSrc);
+        if (!audio.src || !audio.src.includes(active.audioSrc)) {
+          audio.src = expectedSrc;
+          audio.load();
         }
-        audioRef.current.play().catch((err) => console.warn("Audio play error:", err));
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => console.warn("Audio play error:", err));
+        }
       }
     } else {
       if (yt.isPlaying) {
@@ -328,7 +354,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         yt.play();
       }
     }
-  }, [current.audioSrc, isAudioPlaying, yt]);
+  }, [yt]);
 
   const seek = useCallback((seconds: number) => {
     if (current.audioSrc && audioRef.current) {

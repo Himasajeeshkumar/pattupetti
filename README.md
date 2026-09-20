@@ -9,22 +9,24 @@ A nostalgic Malayalam music radio experience inspired by Kerala's cassette-era m
 
 ## Overview
 
-Paattupetti (പാട്ടുപെട്ടി) is a curated Malayalam music radio web application designed with warm Kerala nostalgia. It features 300 timeless tracks categorized into three atmospheric collections:
+Paattupetti (പാട്ടുപെട്ടി) is a curated Malayalam music radio web application designed with warm Kerala nostalgia. It features 313 timeless tracks categorized into atmospheric collections:
 
 - **Golden Memories (100 Tracks)**: Evergreen cassette-era masterpieces from the golden age of Malayalam cinema.
 - **Monsoon Memories (100 Tracks)**: Rain-drenched, soulful melodies capturing the soothing mood of Kerala monsoons.
 - **Night Radio (100 Tracks)**: Calm, late-night atmospheric melodies for peaceful listening and quiet reflection.
+- **Newly Added Songs (13 Tracks)**: Vintage gems and requested classics integrated directly from curated archives.
 
 ---
 
 ## Features
 
-- **300 Curated Malayalam Classics**: Hand-curated library with verified metadata (title, artist, film, year, duration).
+- **313 Curated Malayalam Classics**: Hand-curated library with verified metadata (title, artist, film, year, duration).
+- **Native HTML5 Audio & Offline Playback**: High quality local audio playback via persistent HTML5 Audio architecture with seamless automatic track progression.
+- **Background & Lock-Screen Playback**: Full Media Session API integration supporting title/artist/album display and playback controls from lock screen, notification shade, and hardware keys.
 - **Responsive Photographic Backgrounds**: Dedicated, vibrant Kerala nostalgic backgrounds for each theme on both desktop and mobile devices.
-- **Persistent Audio Playback**: Uninterrupted listening across all views powered by the YouTube IFrame Player API.
 - **Mini Player & Full Player Modal**: Responsive bottom dock controls, interactive seekbar, volume controls, and a full-screen vinyl-style modal.
 - **Dynamic Play Queue**: View upcoming songs, shuffle playback, repeat modes, and add tracks on the fly.
-- **Instant Library Search**: Real-time search across all 300 tracks by song title, singer, movie name, or release year.
+- **Instant Library Search**: Real-time search across all tracks by song title, singer, movie name, or release year.
 - **Transparent Nostalgic Aesthetic**: Warm, minimal, translucent UI that lets the authentic Kerala imagery shine without dark or smoky overlays.
 
 ---
@@ -35,7 +37,7 @@ Paattupetti (പാട്ടുപെട്ടി) is a curated Malayalam music 
 - **UI & Logic**: [React](https://react.dev/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) & Custom CSS Design System
-- **Player API**: Official YouTube IFrame Player API
+- **Player API**: Native HTML5 Audio & Web Media Session API
 - **Deployment**: GitHub Pages via automated GitHub Actions
 
 ---

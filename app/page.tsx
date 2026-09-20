@@ -191,7 +191,7 @@ function App() {
                     className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-marigold-2 to-marigold px-6 py-3 text-sm font-bold text-ink shadow-[0_4px_18px_rgba(232,163,61,0.35)] transition hover:scale-105 active:scale-95"
                   >
                     <AppIcon name="play" size={17} />
-                    Explore Playlists (300 Songs)
+                    Explore Playlists ({allTracks.length} Songs)
                   </button>
 
                   <button
@@ -209,7 +209,7 @@ function App() {
               </div>
             </section>
 
-            {/* Featured Playlists Overview Cards (Three Nostalgic Shelves) */}
+            {/* Featured Playlists Overview Cards */}
             <section>
               <div className="mb-5 flex items-end justify-between">
                 <div>
@@ -217,7 +217,7 @@ function App() {
                     Curated Collections
                   </p>
                   <h2 className="mt-1 font-display text-2xl font-bold tracking-tight sm:text-3xl drop-shadow-sm">
-                    Three Nostalgic Shelves
+                    Curated Shelves & Collections
                   </h2>
                 </div>
                 <button
@@ -229,7 +229,7 @@ function App() {
                 </button>
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {playlists.map((p) => {
                   const cover = getPlaylistCover(p.id);
                   return (
@@ -252,7 +252,7 @@ function App() {
                           </picture>
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                           <span className="absolute bottom-2.5 left-2.5 rounded-md bg-marigold px-2.5 py-0.5 font-mono text-[11px] font-bold text-ink shadow-md">
-                            100 Tracks
+                            {p.tracks.length} Tracks
                           </span>
                         </div>
 
@@ -264,7 +264,9 @@ function App() {
                             ? "Evergreen cassette-era masterpieces from Malayalam cinema."
                             : p.id === "monsoon-memories"
                             ? "Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon mood."
-                            : "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."}
+                            : p.id === "night-radio"
+                            ? "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."
+                            : "Newly added vintage classics and requested melodies from Malayalam cinema."}
                         </p>
                       </div>
 
@@ -274,7 +276,7 @@ function App() {
                           onClick={() => openPlaylistDetail(p.id)}
                           className="flex-1 rounded-lg border border-marigold/25 bg-white/[0.04] py-2 text-xs font-semibold text-cream transition hover:border-marigold/45 hover:bg-marigold/10"
                         >
-                          Explore / View 100 Songs
+                          Explore / View {p.tracks.length} Songs
                         </button>
 
                         <button
@@ -302,7 +304,7 @@ function App() {
                   <div className="font-display text-lg font-bold text-marigold">പാട്ടുപെട്ടി</div>
                 </div>
                 <p className="mt-4 text-xs leading-relaxed text-cream/75">
-                  Paattupetti is a hand-curated archive of 300 timeless Malayalam film songs. Each playlist represents a distinct emotional atmosphere of Kerala — from vintage morning tea-shop memories to gentle monsoon downpours and peaceful midnight radio.
+                  Paattupetti is a hand-curated archive of {allTracks.length} timeless Malayalam film songs. Each playlist represents a distinct emotional atmosphere of Kerala — from vintage morning tea-shop memories to gentle monsoon downpours and peaceful midnight radio.
                 </p>
               </div>
 
@@ -311,7 +313,7 @@ function App() {
                   <span className="font-mono text-[10px] uppercase tracking-[.25em] text-marigold">
                     Playback Info
                   </span>
-                  <span className="font-mono text-xs text-marigold">300 Verified Songs</span>
+                  <span className="font-mono text-xs text-marigold">{allTracks.length} Verified Songs</span>
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-3 text-xs">
                   <div className="rounded-lg border border-white/[0.08] bg-black/25 p-3">
@@ -341,11 +343,11 @@ function App() {
                 The Playlists
               </h1>
               <p className="mt-2 text-sm text-cream/75">
-                Choose a playlist below to browse its complete 100-song library or play immediately.
+                Choose a playlist below to browse its complete collection or play immediately.
               </p>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {playlists.map((p) => {
                 const cover = getPlaylistCover(p.id);
                 return (
@@ -368,7 +370,7 @@ function App() {
                         </picture>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                         <span className="absolute bottom-3 left-3 rounded-lg bg-marigold px-3 py-1 font-mono text-xs font-bold text-ink shadow-md">
-                          100 Tracks
+                          {p.tracks.length} Tracks
                         </span>
                       </div>
 
@@ -380,7 +382,9 @@ function App() {
                           ? "Evergreen cassette-era masterpieces from Malayalam cinema."
                           : p.id === "monsoon-memories"
                           ? "Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon mood."
-                          : "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."}
+                          : p.id === "night-radio"
+                          ? "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."
+                          : "Newly added vintage classics and requested melodies from Malayalam cinema."}
                       </p>
                     </div>
 
@@ -390,7 +394,7 @@ function App() {
                         onClick={() => openPlaylistDetail(p.id)}
                         className="flex-1 rounded-xl border border-marigold/30 bg-white/[0.05] py-2.5 text-xs font-semibold text-cream transition hover:border-marigold/50 hover:bg-marigold/10"
                       >
-                        Browse 100 Songs
+                        Browse {p.tracks.length} Songs
                       </button>
 
                       <button
@@ -410,7 +414,7 @@ function App() {
         )}
 
         {/* ========================================================= */}
-        {/* 3. PLAYLIST DETAIL VIEW (100 Songs Music Library View)     */}
+        {/* 3. PLAYLIST DETAIL VIEW (Songs Music Library View)        */}
         {/* ========================================================= */}
         {view === "playlist-detail" && (
           <div className="space-y-6">
@@ -429,7 +433,7 @@ function App() {
                     {activePlaylist.name}
                   </h1>
                   <span className="rounded-lg border border-marigold/30 bg-marigold/15 px-2.5 py-0.5 font-mono text-xs font-bold text-marigold">
-                    100 Songs
+                    {activePlaylist.tracks.length} Songs
                   </span>
                 </div>
                 <p className="mt-1 text-xs text-cream/70">
@@ -437,7 +441,9 @@ function App() {
                     ? "Evergreen cassette-era masterpieces from Malayalam cinema."
                     : activePlaylist.id === "monsoon-memories"
                     ? "Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon mood."
-                    : "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."}
+                    : activePlaylist.id === "night-radio"
+                    ? "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."
+                    : "Newly added vintage classics and requested melodies from Malayalam cinema."}
                 </p>
               </div>
 
@@ -448,7 +454,7 @@ function App() {
                   className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-marigold-2 to-marigold px-5 py-2.5 text-xs font-bold text-ink shadow-md transition hover:scale-105 active:scale-95"
                 >
                   <AppIcon name="play" size={15} />
-                  Play All (100)
+                  Play All ({activePlaylist.tracks.length})
                 </button>
 
                 <button
@@ -498,7 +504,7 @@ function App() {
         )}
 
         {/* ========================================================= */}
-        {/* 4. SEARCH VIEW (Search 300 Songs Archive)                  */}
+        {/* 4. SEARCH VIEW (Search Dynamic Songs Archive)             */}
         {/* ========================================================= */}
         {view === "search" && (
           <div className="space-y-6">
@@ -510,7 +516,7 @@ function App() {
                 Search Songs
               </h1>
               <p className="mt-2 text-sm text-cream/75">
-                Find songs from our 300-track library by title, singer, movie, or year.
+                Find songs from our {allTracks.length}-track library by title, singer, movie, or year.
               </p>
             </div>
 
@@ -522,7 +528,7 @@ function App() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search across all 300 songs, singers, movies or years..."
+                  placeholder={`Search across all ${allTracks.length} songs, singers, movies or years...`}
                   className="w-full bg-transparent text-sm text-cream outline-none placeholder:text-cream/40"
                   autoFocus
                 />
@@ -571,7 +577,7 @@ function App() {
                   <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-marigold/10 text-marigold">
                     <AppIcon name="search" size={22} />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-bold text-cream">Search the 300-Song Archive</h3>
+                  <h3 className="mt-4 font-display text-lg font-bold text-cream">Search the {allTracks.length}-Song Archive</h3>
                   <p className="mt-1 text-xs text-cream/50">
                     Type a title, artist (e.g. Yesudas, Chithra), movie name, or release year above.
                   </p>
