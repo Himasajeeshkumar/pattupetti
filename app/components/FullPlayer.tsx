@@ -53,8 +53,15 @@ export default function FullPlayer() {
         {/* Album Cover / Vinyl Artwork Presentation */}
         <div className="relative z-10 mx-auto mt-6 aspect-square w-full max-w-[280px] overflow-hidden rounded-[20px] border border-white/10 bg-black shadow-[0_15px_40px_rgba(0,0,0,0.6)] group sm:max-w-[310px]">
           <img
-            src={`https://i.ytimg.com/vi/${p.current.videoId}/hqdefault.jpg`}
+            src={
+              p.current.videoId.startsWith("custom-")
+                ? "/images/backgrounds/scene-wide.png"
+                : `https://i.ytimg.com/vi/${p.current.videoId}/hqdefault.jpg`
+            }
             alt={p.current.title}
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = "/images/backgrounds/golden-memories-desktop.png";
+            }}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
           {/* Subtle Vinyl Grooves Overlay */}

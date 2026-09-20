@@ -462,19 +462,18 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     if (typeof window === "undefined" || !("mediaSession" in navigator)) return;
 
     try {
+      const artUrl = current.videoId.startsWith("custom-")
+        ? `${window.location.origin}${basePath}/images/backgrounds/scene-wide.png`
+        : `https://i.ytimg.com/vi/${current.videoId}/hqdefault.jpg`;
+
       navigator.mediaSession.metadata = new MediaMetadata({
         title: current.title,
         artist: current.artist,
         album: current.film || "Paattupetti",
         artwork: [
           {
-            src: `https://i.ytimg.com/vi/${current.videoId}/hqdefault.jpg`,
+            src: artUrl,
             sizes: "480x360",
-            type: "image/jpeg",
-          },
-          {
-            src: `https://i.ytimg.com/vi/${current.videoId}/mqdefault.jpg`,
-            sizes: "320x180",
             type: "image/jpeg",
           },
         ],

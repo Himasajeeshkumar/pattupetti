@@ -42,6 +42,10 @@ function App() {
       desktop: "/images/backgrounds/night-radio-desktop.png",
       mobile: "/images/backgrounds/night-radio-mobile.png",
     },
+    "newly-added": {
+      desktop: "/images/backgrounds/scene-wide.png",
+      mobile: "/images/backgrounds/scene-tall.png",
+    },
   };
 
   const getPlaylistCover = (id: string) => {

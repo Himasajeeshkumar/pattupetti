@@ -122,8 +122,15 @@ function QueueItem({ item, active, index }: { item: any; active?: boolean; index
     >
       <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-lg bg-black">
         <img
-          src={`https://i.ytimg.com/vi/${item.videoId}/default.jpg`}
+          src={
+            item.videoId.startsWith("custom-")
+              ? "/images/backgrounds/scene-wide.png"
+              : `https://i.ytimg.com/vi/${item.videoId}/default.jpg`
+          }
           alt=""
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = "/images/backgrounds/golden-memories-desktop.png";
+          }}
           className="h-full w-full object-cover"
         />
         {active && (

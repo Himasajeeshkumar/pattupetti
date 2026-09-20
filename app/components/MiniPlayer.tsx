@@ -41,8 +41,15 @@ export default function MiniPlayer() {
             className="group relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-black shadow-md transition-transform active:scale-95"
           >
             <img
-              src={`https://i.ytimg.com/vi/${p.current.videoId}/hqdefault.jpg`}
+              src={
+                p.current.videoId.startsWith("custom-")
+                  ? "/images/backgrounds/scene-wide.png"
+                  : `https://i.ytimg.com/vi/${p.current.videoId}/hqdefault.jpg`
+              }
               alt=""
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = "/images/backgrounds/golden-memories-desktop.png";
+              }}
               className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition group-hover:opacity-100">
