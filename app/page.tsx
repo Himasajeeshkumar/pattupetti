@@ -42,10 +42,6 @@ function App() {
       desktop: "/images/backgrounds/night-radio-desktop.png",
       mobile: "/images/backgrounds/night-radio-mobile.png",
     },
-    "newly-added": {
-      desktop: "/images/backgrounds/scene-wide.png",
-      mobile: "/images/backgrounds/scene-tall.png",
-    },
   };
 
   const getPlaylistCover = (id: string) => {
@@ -66,12 +62,14 @@ function App() {
   const searchResults = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q) return [];
+    const qNormalized = q.replace(/\s+/g, "");
     return allTracks.filter(
       (t) =>
         t.title.toLowerCase().includes(q) ||
         t.artist.toLowerCase().includes(q) ||
         t.film.toLowerCase().includes(q) ||
-        String(t.year).includes(q)
+        String(t.year).includes(q) ||
+        (t.audioSrc && (t.audioSrc.toLowerCase().includes(q) || t.audioSrc.toLowerCase().replace(/[^a-z0-9]/g, "").includes(qNormalized)))
     );
   }, [allTracks, searchQuery]);
 
@@ -233,7 +231,7 @@ function App() {
                 </button>
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {playlists.map((p) => {
                   const cover = getPlaylistCover(p.id);
                   return (
@@ -268,9 +266,7 @@ function App() {
                             ? "Evergreen cassette-era masterpieces from Malayalam cinema."
                             : p.id === "monsoon-memories"
                             ? "Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon mood."
-                            : p.id === "night-radio"
-                            ? "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."
-                            : "Newly added vintage classics and requested melodies from Malayalam cinema."}
+                            : "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."}
                         </p>
                       </div>
 
@@ -351,7 +347,7 @@ function App() {
               </p>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {playlists.map((p) => {
                 const cover = getPlaylistCover(p.id);
                 return (
@@ -386,9 +382,7 @@ function App() {
                           ? "Evergreen cassette-era masterpieces from Malayalam cinema."
                           : p.id === "monsoon-memories"
                           ? "Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon mood."
-                          : p.id === "night-radio"
-                          ? "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."
-                          : "Newly added vintage classics and requested melodies from Malayalam cinema."}
+                          : "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."}
                       </p>
                     </div>
 
@@ -445,9 +439,7 @@ function App() {
                     ? "Evergreen cassette-era masterpieces from Malayalam cinema."
                     : activePlaylist.id === "monsoon-memories"
                     ? "Rain-drenched nostalgic melodies capturing the soulful Kerala monsoon mood."
-                    : activePlaylist.id === "night-radio"
-                    ? "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."
-                    : "Newly added vintage classics and requested melodies from Malayalam cinema."}
+                    : "Calm, late-night atmospheric melodies for quiet listening, memories, and peaceful reflection."}
                 </p>
               </div>
 

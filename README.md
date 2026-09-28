@@ -11,10 +11,9 @@ A nostalgic Malayalam music radio experience inspired by Kerala's cassette-era m
 
 Paattupetti (പാട്ടുപെട്ടി) is a curated Malayalam music radio web application designed with warm Kerala nostalgia. It features 313 timeless tracks categorized into atmospheric collections:
 
-- **Golden Memories (100 Tracks)**: Evergreen cassette-era masterpieces from the golden age of Malayalam cinema.
+- **Golden Memories (113 Tracks)**: Evergreen cassette-era masterpieces and vintage classics from Malayalam cinema.
 - **Monsoon Memories (100 Tracks)**: Rain-drenched, soulful melodies capturing the soothing mood of Kerala monsoons.
 - **Night Radio (100 Tracks)**: Calm, late-night atmospheric melodies for peaceful listening and quiet reflection.
-- **Newly Added Songs (13 Tracks)**: Vintage gems and requested classics integrated directly from curated archives.
 
 ---
 
