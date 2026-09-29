@@ -48,7 +48,7 @@ Example: `public/audio/001-unarumee-gaanam.mp3`
 | [ ] | 015 | `gm-15` | **പൂക്കാലം വന്നു പൂക്കാലം** | K. S. Chithra & Unni Menon | *Godfather* | 1991 | `NO7N6ZrvgkM` | `015-pookkaalam-vannu-pookkaalam.mp3` |
 | [ ] | 016 | `gm-16` | **ചിങ്കാരക്കിന്നാരം** | M. G. Sreekumar & K. S. Chithra | *Minnaram* | 1994 | `xKT7JwBLi74` | `016-chingkaarakkinnaaram.mp3` |
 | [ ] | 017 | `gm-17` | **തെച്ചിപ്പൂവേ** | K. J. Yesudas & K. S. Chithra | *Pookkalam Varavayi* | 1991 | `kU0Ie38VMB4` | `017-thechchippoove.mp3` |
-| [ ] | 018 | `gm-18` | **കന്നിപ്പീലി തൂവലൊതുക്കും** | K. J. Yesudas & K. S. Chithra | *Thoovalsparsham* | 1990 | `IkhKZzuHLMM` | `018-kannippeeli-thoovalothukkum.mp3` |
+| [x] | 018 | `gm-18` | **ശാരികേ നിന്നെ കാണാൻ** | K. S. Chithra, Sujatha Mohan & Sangeetha | *Raakkilippaattu* | 2007 | `1ci219EAqJA` | `018-sharike-ninne-kanan.mp3` |
 | [ ] | 019 | `gm-19` | **തങ്കത്തിങ്കൾ** | M. G. Sreekumar & K. S. Chithra | *Indraprastham* | 1996 | `oLVEQLfhM2I` | `019-thangkaththingkal.mp3` |
 | [ ] | 020 | `gm-20` | **വെള്ളിനിലാ തുള്ളികളോ** | K. S. Chithra & M. G. Sreekumar | *Varnappakittu* | 1997 | `tQ19dswa-vk` | `020-vellinilaa-thullikalo.mp3` |
 | [ ] | 021 | `gm-21` | **മാണിക്യക്കല്ലാൽ** | M. G. Sreekumar & Swarnalatha | *Varnappakittu* | 1997 | `wcNh7dkZ3XU` | `021-maanikyakkallaal.mp3` |
