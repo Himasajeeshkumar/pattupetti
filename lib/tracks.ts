@@ -192,13 +192,13 @@ export const playlists: Playlist[] = [
       },
       {
         "id": "gm-18",
-        "title": "കന്നിപ്പീലി തൂവലൊതുക്കും",
-        "artist": "K. J. Yesudas & K. S. Chithra",
-        "film": "Thoovalsparsham",
-        "year": 1990,
-        "duration": 300,
-        "videoId": "IkhKZzuHLMM",
-        "audioSrc": "/audio/018-kannippeeli-thoovalothukkum.mp3"
+        "title": "ശാരികേ നിന്നെ കാണാൻ",
+        "artist": "K. S. Chithra, Sujatha Mohan & Sangeetha",
+        "film": "Raakkilippaattu",
+        "year": 2007,
+        "duration": 268,
+        "videoId": "1ci219EAqJA",
+        "audioSrc": "/audio/018-sharike-ninne-kanan.mp3"
       },
       {
         "id": "gm-19",
@@ -989,6 +989,136 @@ export const playlists: Playlist[] = [
         "year": 1990,
         "duration": 280,
         "videoId": "-K8cQ2YytKI"
+      },
+      {
+        "id": "new-1",
+        "title": "അന്തിപ്പൊൻവെട്ടം",
+        "artist": "M. G. Sreekumar & Sujatha Mohan",
+        "film": "Vandhanam",
+        "year": 1989,
+        "duration": 250,
+        "videoId": "custom-anthiponvettam",
+        "audioSrc": "/audio/new-001-anthiponvettam.mp3"
+      },
+      {
+        "id": "new-2",
+        "title": "ദൂരെ കിഴക്കുദിക്കും",
+        "artist": "K. J. Yesudas & K. S. Chithra",
+        "film": "Chithram",
+        "year": 1988,
+        "duration": 275,
+        "videoId": "custom-doore-kizhakkudikkum",
+        "audioSrc": "/audio/new-002-doore-kizhakkudikkum.mp3"
+      },
+      {
+        "id": "new-3",
+        "title": "എന്റെ ഉള്ളുടുക്കും കൊട്ടി",
+        "artist": "M. G. Sreekumar",
+        "film": "Deepasthambham Mahascharyam",
+        "year": 1999,
+        "duration": 280,
+        "videoId": "custom-ente-ulludukkum-kotti",
+        "audioSrc": "/audio/new-003-ente-ulludukkum-kotti.mp3"
+      },
+      {
+        "id": "new-4",
+        "title": "ഏതോ നിദ്രതൻ പൊൻമയിൽപ്പീലിയിൽ",
+        "artist": "M. G. Sreekumar & Sujatha Mohan",
+        "film": "Ayal Kadha Ezhuthukayanu",
+        "year": 1998,
+        "duration": 300,
+        "videoId": "custom-etho-nidrathan",
+        "audioSrc": "/audio/new-004-etho-nidrathan.mp3"
+      },
+      {
+        "id": "new-5",
+        "title": "കഥയിലെ രാജകുമാരിയും",
+        "artist": "K. J. Yesudas",
+        "film": "Kalyanaraman",
+        "year": 2002,
+        "duration": 280,
+        "videoId": "custom-kadhayile-rajakumariyum",
+        "audioSrc": "/audio/new-005-kadhayile-rajakumariyum.mp3"
+      },
+      {
+        "id": "new-6",
+        "title": "മിഴിയോരം നനഞ്ഞൊഴുകും",
+        "artist": "S. Janaki",
+        "film": "Manjil Virinja Pookkal",
+        "year": 1980,
+        "duration": 260,
+        "videoId": "custom-mizhiyoram",
+        "audioSrc": "/audio/new-006-mizhiyoram.mp3"
+      },
+      {
+        "id": "new-7",
+        "title": "പാടം പൂത്ത കാലം",
+        "artist": "K. J. Yesudas",
+        "film": "Chithram",
+        "year": 1988,
+        "duration": 270,
+        "videoId": "custom-paadam-pootha-kaalam",
+        "audioSrc": "/audio/new-007-paadam-pootha-kaalam.mp3"
+      },
+      {
+        "id": "new-8",
+        "title": "പലവട്ടം പൂക്കാലം",
+        "artist": "K. J. Yesudas",
+        "film": "Manichitrathazhu",
+        "year": 1993,
+        "duration": 260,
+        "videoId": "custom-palavattam-pookkalam",
+        "audioSrc": "/audio/new-008-palavattam-pookkalam.mp3"
+      },
+      {
+        "id": "new-9",
+        "title": "തളിരണിയൊരു വാസന്തം",
+        "artist": "M. G. Sreekumar",
+        "film": "Minnaram",
+        "year": 1994,
+        "duration": 250,
+        "videoId": "custom-thaliraninjoru",
+        "audioSrc": "/audio/new-009-thaliraninjoru.mp3"
+      },
+      {
+        "id": "new-10",
+        "title": "കള്ളിപ്പൂങ്കുയിലേ കണ്ടോ നീ",
+        "artist": "M. G. Sreekumar & K. S. Chithra",
+        "film": "Thenmavin Kombathu",
+        "year": 1994,
+        "duration": 290,
+        "videoId": "custom-kalli-poonkuyile",
+        "audioSrc": "/audio/new-010-kalli-poonkuyile.mp3"
+      },
+      {
+        "id": "new-11",
+        "title": "ഒരു മധുരക്കിനാവിൻ ലഹരിയിലെങ്ങോ",
+        "artist": "K. J. Yesudas",
+        "film": "Kanamarayathu",
+        "year": 1984,
+        "duration": 290,
+        "videoId": "custom-oru-madhurakinavin",
+        "audioSrc": "/audio/new-011-oru-madhurakinavin.mp3"
+      },
+      {
+        "id": "new-12",
+        "title": "കൂട്ടിൽ നിന്നും മേട്ടിൽ വന്ന പൈങ്കിളിയേ",
+        "artist": "K. J. Yesudas",
+        "film": "Thalavattam",
+        "year": 1986,
+        "duration": 310,
+        "videoId": "custom-koottil-ninnum",
+        "audioSrc": "/audio/new-012-koottil-ninnum.mp3"
+      },
+      {
+        "id": "new-13",
+        "title": "മീനവേനലിൽ സൂര്യനായ്",
+        "artist": "M. G. Sreekumar",
+        "film": "Kilukkam",
+        "year": 1991,
+        "duration": 300,
+        "videoId": "custom-meena-venalil",
+        "audioSrc": "/audio/new-013-meena-venalil.mp3"
       }
     ]
   },
@@ -2812,142 +2942,6 @@ export const playlists: Playlist[] = [
         "year": 2002,
         "duration": 265,
         "videoId": "lyeB62xV4zw"
-      }
-    ]
-  },
-  {
-    "id": "newly-added",
-    "name": "Newly Added Songs",
-    "tracks": [
-      {
-        "id": "new-1",
-        "title": "അന്തിപ്പൊൻവെട്ടം",
-        "artist": "M. G. Sreekumar & Sujatha Mohan",
-        "film": "Vandhanam",
-        "year": 1989,
-        "duration": 250,
-        "videoId": "custom-anthiponvettam",
-        "audioSrc": "/audio/new-001-anthiponvettam.mp3"
-      },
-      {
-        "id": "new-2",
-        "title": "ദൂരെ കിഴക്കുദിക്കും",
-        "artist": "K. J. Yesudas & K. S. Chithra",
-        "film": "Chithram",
-        "year": 1988,
-        "duration": 275,
-        "videoId": "custom-doore-kizhakkudikkum",
-        "audioSrc": "/audio/new-002-doore-kizhakkudikkum.mp3"
-      },
-      {
-        "id": "new-3",
-        "title": "എന്റെ ഉള്ളുടുക്കും കൊട്ടി",
-        "artist": "M. G. Sreekumar",
-        "film": "Deepasthambham Mahascharyam",
-        "year": 1999,
-        "duration": 280,
-        "videoId": "custom-ente-ulludukkum-kotti",
-        "audioSrc": "/audio/new-003-ente-ulludukkum-kotti.mp3"
-      },
-      {
-        "id": "new-4",
-        "title": "ഏതോ നിദ്രതൻ പൊൻമയിൽപ്പീലിയിൽ",
-        "artist": "M. G. Sreekumar & Sujatha Mohan",
-        "film": "Ayal Kadha Ezhuthukayanu",
-        "year": 1998,
-        "duration": 300,
-        "videoId": "custom-etho-nidrathan",
-        "audioSrc": "/audio/new-004-etho-nidrathan.mp3"
-      },
-      {
-        "id": "new-5",
-        "title": "കഥയിലെ രാജകുമാരിയും",
-        "artist": "K. J. Yesudas",
-        "film": "Kalyanaraman",
-        "year": 2002,
-        "duration": 280,
-        "videoId": "custom-kadhayile-rajakumariyum",
-        "audioSrc": "/audio/new-005-kadhayile-rajakumariyum.mp3"
-      },
-      {
-        "id": "new-6",
-        "title": "മിഴിയോരം നനഞ്ഞൊഴുകും",
-        "artist": "S. Janaki",
-        "film": "Manjil Virinja Pookkal",
-        "year": 1980,
-        "duration": 260,
-        "videoId": "custom-mizhiyoram",
-        "audioSrc": "/audio/new-006-mizhiyoram.mp3"
-      },
-      {
-        "id": "new-7",
-        "title": "പാടം പൂത്ത കാലം",
-        "artist": "K. J. Yesudas",
-        "film": "Chithram",
-        "year": 1988,
-        "duration": 270,
-        "videoId": "custom-paadam-pootha-kaalam",
-        "audioSrc": "/audio/new-007-paadam-pootha-kaalam.mp3"
-      },
-      {
-        "id": "new-8",
-        "title": "പലവട്ടം പൂക്കാലം",
-        "artist": "K. J. Yesudas",
-        "film": "Manichitrathazhu",
-        "year": 1993,
-        "duration": 260,
-        "videoId": "custom-palavattam-pookkalam",
-        "audioSrc": "/audio/new-008-palavattam-pookkalam.mp3"
-      },
-      {
-        "id": "new-9",
-        "title": "തളിരണിയൊരു വാസന്തം",
-        "artist": "M. G. Sreekumar",
-        "film": "Minnaram",
-        "year": 1994,
-        "duration": 250,
-        "videoId": "custom-thaliraninjoru",
-        "audioSrc": "/audio/new-009-thaliraninjoru.mp3"
-      },
-      {
-        "id": "new-10",
-        "title": "കള്ളിപ്പൂങ്കുയിലേ കണ്ടോ നീ",
-        "artist": "M. G. Sreekumar & K. S. Chithra",
-        "film": "Thenmavin Kombathu",
-        "year": 1994,
-        "duration": 290,
-        "videoId": "custom-kalli-poonkuyile",
-        "audioSrc": "/audio/new-010-kalli-poonkuyile.mp3"
-      },
-      {
-        "id": "new-11",
-        "title": "ഒരു മധുരക്കിനാവിൻ ലഹരിയിലെങ്ങോ",
-        "artist": "K. J. Yesudas",
-        "film": "Kanamarayathu",
-        "year": 1984,
-        "duration": 290,
-        "videoId": "custom-oru-madhurakinavin",
-        "audioSrc": "/audio/new-011-oru-madhurakinavin.mp3"
-      },
-      {
-        "id": "new-12",
-        "title": "കൂട്ടിൽ നിന്നും മേട്ടിൽ വന്ന പൈങ്കിളിയേ",
-        "artist": "K. J. Yesudas",
-        "film": "Thalavattam",
-        "year": 1986,
-        "duration": 310,
-        "videoId": "custom-koottil-ninnum",
-        "audioSrc": "/audio/new-012-koottil-ninnum.mp3"
-      },
-      {
-        "id": "new-13",
-        "title": "മീനവേനലിൽ സൂര്യനായ്",
-        "artist": "M. G. Sreekumar",
-        "film": "Kilukkam",
-        "year": 1991,
-        "duration": 300,
-        "videoId": "custom-meena-venalil",
-        "audioSrc": "/audio/new-013-meena-venalil.mp3"
       }
     ]
   }
